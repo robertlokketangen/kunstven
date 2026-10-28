@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ee">
+  <meta name="description" content="Ein kreativ portal for visuelle kunstfag i kulturskulen.">
+  <title>Visuell Kunstportal | Kulturskulen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Hopp til innhaldet</a>
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="Visuell Kunstportal, framside">
+      <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-shapes"></i></span>
+      <span class="brand-name">kunst<span>rom</span><small>KULTURSKULEN</small></span>
+    </a>
+    <div class="topbar-tools">
+      <span class="topbar-note"><span class="status-dot"></span> Ein stad for idéar</span>
+      <button class="icon-button theme-toggle" type="button" aria-label="Byt til mørk modus" title="Byt fargetema">
+        <i class="fa-regular fa-moon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow"><span></span> VISUELLE KUNSTFAG</p>
+        <h1 id="page-title">Gode idéar byrjar<br>med <em>eit tomt ark.</em></h1>
+        <p class="intro-text">Utforsk fargar, prøv nye oppgåver og finn inspirasjon i kunsthistoria.</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <span class="art-sun"></span><span class="art-shape art-shape-one"></span>
+        <span class="art-shape art-shape-two"></span><span class="art-line"></span>
+        <span class="art-caption">IDEAR I RØRSLE <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </div>
+    </section>
+
+    <nav class="tab-nav" role="tablist" aria-label="Kunstverkstader">
+      <button class="tab-button is-active" id="tab-colour" type="button" role="tab" aria-selected="true" aria-controls="panel-colour" tabindex="0" data-tab="colour"><span>01</span> Fargeverkstad</button>
+      <button class="tab-button" id="tab-composition" type="button" role="tab" aria-selected="false" aria-controls="panel-composition" tabindex="-1" data-tab="composition"><span>02</span> Komposisjonsgenerator</button>
+      <button class="tab-button" id="tab-dice" type="button" role="tab" aria-selected="false" aria-controls="panel-dice" tabindex="-1" data-tab="dice"><span>03</span> Kunstterning</button>
+      <button class="tab-button" id="tab-timeline" type="button" role="tab" aria-selected="false" aria-controls="panel-timeline" tabindex="-1" data-tab="timeline"><span>04</span> Kunsthistorisk tidslinje</button>
+    </nav>
+
+    <div class="panels-wrap">
+      <section class="tab-panel is-visible" id="panel-colour" role="tabpanel" aria-labelledby="tab-colour" tabindex="0" data-panel="colour">
+        <div class="section-heading">
+          <div><p class="eyebrow">PRØV DEG FRAM</p><h2>Fargeverkstad</h2></div>
+          <p>To fargar, uendeleg mange retningar.</p>
+        </div>
+        <div class="colour-layout">
+          <div class="colour-workspace">
+            <div class="mix-preview" aria-label="Fargeblanding">
+              <div class="mix-half mix-first"></div><div class="mix-half mix-second"></div>
+              <div class="mix-result"><span class="mix-result-dot"></span><span>BLANDING</span></div>
+            </div>
+            <div class="picker-row">
+              <label class="picker-control"><span class="picker-swatch picker-swatch-one"><input id="colour-one" type="color" value="#e66c4e" aria-label="Vel farge ein"></span><span><strong>Farge ein</strong><small id="colour-one-value">#E66C4E</small></span></label>
+              <span class="mix-sign" aria-hidden="true">+</span>
+              <label class="picker-control"><span class="picker-swatch picker-swatch-two"><input id="colour-two" type="color" value="#478c81" aria-label="Vel farge to"></span><span><strong>Farge to</strong><small id="colour-two-value">#478C81</small></span></label>
+            </div>
+            <div class="result-details">
+              <div class="result-heading"><div><span class="tiny-label">RESULTAT</span><h3>Den nye tonen</h3></div><div class="result-values"><strong id="mix-hex">#000000</strong><span id="mix-rgb">RGB 0, 0, 0</span></div></div>
+              <div class="swatch-strip" id="colour-relations" aria-live="polite"></div>
+            </div>
+            <div class="save-row"><label class="sr-only" for="palette-name">Namn på paletten</label><input id="palette-name" type="text" maxlength="32" placeholder="Namn på paletten"><button class="button button-dark" id="save-palette" type="button"><i class="fa-regular fa-bookmark" aria-hidden="true"></i> Lagre palett</button></div>
+            <p class="form-message" id="palette-message" aria-live="polite"></p>
+          </div>
+          <aside class="colour-note"><span class="note-icon"><i class="fa-solid fa-droplet" aria-hidden="true"></i></span><p class="tiny-label">LITEN PÅMINNING</p><div aria-live="polite" aria-atomic="true"><h3 id="colour-tip-title">Fargar snakkar saman.</h3><p id="colour-tip-text">Prøv å blande komplementærfargar for eit livleg uttrykk, eller analoge fargar for ro og samanheng.</p></div><div class="note-rule"></div><button class="note-footer" id="next-colour-tip" type="button" aria-label="Vis neste fargetips" title="Vis neste fargetips"><span id="colour-tip-count">TIPS 01 / 10</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></aside>
+        </div>
+        <section class="saved-section" aria-labelledby="saved-title"><div class="subsection-heading"><div><p class="eyebrow">DINE FAVORITTAR</p><h3 id="saved-title">Lagra palettar <span id="palette-count">0</span></h3></div></div><div class="saved-palettes" id="saved-palettes"><p class="empty-state">Palettane dine kjem til å dukke opp her.</p></div></section>
+      </section>
+
+      <section class="tab-panel" id="panel-composition" role="tabpanel" aria-labelledby="tab-composition" tabindex="0" data-panel="composition" hidden>
+        <div class="section-heading"><div><p class="eyebrow">EIT LITE DYTT I GANG</p><h2>Kom i gang med ei oppgåve</h2></div><p>La tilfeldigheita finne neste idé.</p></div>
+        <div class="prompt-layout">
+          <div class="prompt-card" id="prompt-card" aria-live="polite">
+            <div class="prompt-card-top"><span class="prompt-stamp"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> DAGENS OPPGÅVE</span><span class="prompt-index" id="prompt-index">IDÉ 01</span></div>
+            <div class="prompt-main"><p class="tiny-label">TEIKN ELLER SKAP</p><h3 id="prompt-subject">Ein fisk</h3><div class="prompt-rule"></div><div class="prompt-tags"><div><span class="tiny-label">TEKNIKK</span><strong id="prompt-technique">Akvarell</strong></div><div><span class="tiny-label">FARGEREGEL</span><strong id="prompt-colour">Berre kalde fargar</strong></div></div></div>
+            <div class="prompt-challenge"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><p><span class="tiny-label">UTFORDRING</span><strong id="prompt-challenge">Må vise djupn</strong></p></div>
+          </div>
+          <div class="prompt-aside"><span class="aside-number">02</span><p class="tiny-label">SLIPP TIL DET UVENTA</p><h3>Det finst ingen feil strek.</h3><p>Ta utgangspunkt i oppgåva, og lag di eiga tolking. Byt ut detaljar, bland teknikkar eller finn på noko heilt nytt.</p><button class="button button-coral" id="generate-prompt" type="button"><i class="fa-solid fa-shuffle" aria-hidden="true"></i> Generer ny oppgåve</button></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-dice" role="tabpanel" aria-labelledby="tab-dice" tabindex="0" data-panel="dice" hidden>
+        <div class="section-heading"><div><p class="eyebrow">TRE KAST. EI NY RETNING.</p><h2>Kva skal du lage?</h2></div><p>La terningane velje for deg.</p></div>
+        <div class="dice-stage" id="dice-stage" aria-live="polite">
+          <article class="die-card die-motif"><span class="die-number">01 / MOTIV</span><span class="die-icon"><i class="fa-solid fa-fish-fins" aria-hidden="true"></i></span><p id="die-motif">Ugle</p><span class="die-deco" aria-hidden="true">✳</span></article>
+          <article class="die-card die-style"><span class="die-number">02 / STIL</span><span class="die-icon"><i class="fa-solid fa-shapes" aria-hidden="true"></i></span><p id="die-style">Kubisme</p><span class="die-deco" aria-hidden="true">◒</span></article>
+          <article class="die-card die-material"><span class="die-number">03 / MATERIALE</span><span class="die-icon"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i></span><p id="die-material">Kolstift</p><span class="die-deco" aria-hidden="true">✳</span></article>
+        </div>
+        <div class="dice-action"><p id="dice-message" aria-live="polite">Klar for eit nytt kunstnarisk påfunn?</p><button class="button button-dark button-large" id="roll-dice" type="button"><i class="fa-solid fa-dice" aria-hidden="true"></i> Kast kunstterning</button></div>
+      </section>
+
+      <section class="tab-panel" id="panel-timeline" role="tabpanel" aria-labelledby="tab-timeline" tabindex="0" data-panel="timeline" hidden>
+        <div class="section-heading timeline-heading"><div><p class="eyebrow">SMÅ GLIMT FRÅ KUNSTHISTORIA</p><h2>Ei linje gjennom tida</h2></div><p>Vel eit kort for å utforske meir.</p></div>
+        <div class="timeline-controls"><span><i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i> Dra sidelengs for å sjå meir <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i></span><div class="timeline-scroll-buttons"><button type="button" class="icon-button timeline-scroll" data-direction="left" aria-label="Rull tidslinja mot venstre"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" class="icon-button timeline-scroll" data-direction="right" aria-label="Rull tidslinja mot høgre"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+        <div class="timeline-viewport" id="timeline-viewport" tabindex="0" aria-label="Horisontal tidslinje med kunstretningar"><div class="timeline-track" id="timeline-track"></div></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#main"><span class="brand-mark"><i class="fa-solid fa-shapes" aria-hidden="true"></i></span> Visuell Kunstportal <span class="footer-separator">/</span> Kulturskulen</a><span>Laga for skaparglede <i class="fa-regular fa-heart" aria-hidden="true"></i></span></footer>
+
+  <dialog class="art-modal" id="art-modal" aria-labelledby="modal-title"><button class="icon-button modal-close" id="modal-close" type="button" aria-label="Lukk vindauget"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button><div class="modal-art" id="modal-art" aria-hidden="true"></div><div class="modal-copy"><p class="eyebrow" id="modal-years"></p><h2 id="modal-title"></h2><p class="modal-artist" id="modal-artist"></p><p class="modal-description" id="modal-description"></p><div class="modal-footnote"><i class="fa-solid fa-book-open" aria-hidden="true"></i> EIT GLIMT FRÅ KUNSTHISTORIA</div></div></dialog>
+</body>
+</html>
